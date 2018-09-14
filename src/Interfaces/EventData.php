@@ -7,6 +7,13 @@
 interface EventData
 {
     /**
+     * Get event id
+     *
+     * @return mixed
+     */
+    public function getId();
+
+    /**
      * Get data
      *
      * @return mixed

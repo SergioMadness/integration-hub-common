@@ -1,16 +1,18 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Jobs;
 
+use Illuminate\Support\Arr;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
 use professionalweb\IntegrationHub\IntegrationHubDB\Interfaces\Models\ProcessOptions;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Events\EventToProcess as ETPEvent;
 
 /**
  * Job with event data for processing through queues
  * @package professionalweb\IntegrationHub\IntegrationHubCommon\Jobs
  */
-class NewEvent implements ShouldQueue
+class EventToProcess implements ShouldQueue
 {
     use InteractsWithQueue, Queueable;
 
@@ -30,8 +32,13 @@ class NewEvent implements ShouldQueue
         $this->processOptions = $processOptions;
     }
 
-    public function handle()
+    public function handle(): void
     {
+        $result = event(new ETPEvent($this->eventData, $this->processOptions));
 
+        dispatch(
+            (new EventToSupervisor(Arr::last($result), $this->processOptions->getSubsystemId()))
+                ->onQueue(config('integration-hub.supervisor-queue'))
+        );
     }
 }
