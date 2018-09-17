@@ -1,4 +1,4 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubDB\Interfaces\Models;
+<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models;
 
 /**
  * Subsystem settings

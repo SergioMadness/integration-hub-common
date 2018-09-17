@@ -1,6 +1,4 @@
-<?php
-
-namespace professionalweb\IntegrationHub\IntegrationHubCommon\Providers;
+<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;

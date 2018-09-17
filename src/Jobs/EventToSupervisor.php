@@ -4,6 +4,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Events\EventToSupervisor as EventToSupervisorEvent;
 
 /**
  * Job to return event to supervisor
@@ -31,6 +32,6 @@ class EventToSupervisor implements ShouldQueue
 
     public function handle(): void
     {
-
+        event(new EventToSupervisorEvent($this->eventData, $this->processId));
     }
 }
