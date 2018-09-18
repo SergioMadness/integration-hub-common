@@ -5,7 +5,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
-use professionalweb\IntegrationHub\IntegrationHubDB\Interfaces\Models\ProcessOptions;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\ProcessOptions;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Events\EventToProcess as ETPEvent;
 
 /**
@@ -38,7 +38,8 @@ class EventToProcess implements ShouldQueue
 
         dispatch(
             (new EventToSupervisor(Arr::last($result), $this->processOptions->getSubsystemId()))
-                ->onQueue(config('integration-hub.supervisor-queue'))
+                ->onConnection(config('integration-hub.supervisor-connection', 'default'))
+                ->onQueue(config('integration-hub.supervisor-queue', 'default'))
         );
     }
 }

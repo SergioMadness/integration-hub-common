@@ -21,4 +21,24 @@ class EventToProcess implements IEventToProcess
         $this->eventData = $eventData;
         $this->processOptions = $processOptions;
     }
+
+    /**
+     * Get process options
+     *
+     * @return ProcessOptions
+     */
+    public function getProcessOptions(): ProcessOptions
+    {
+        return $this->processOptions;
+    }
+
+    /**
+     * Get event data
+     *
+     * @return EventData
+     */
+    public function getEventData(): EventData
+    {
+        return $this->eventData;
+    }
 }
