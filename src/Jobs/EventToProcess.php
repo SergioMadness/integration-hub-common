@@ -34,10 +34,17 @@ class EventToProcess implements ShouldQueue
 
     public function handle(): void
     {
-        $result = event(new ETPEvent($this->eventData, $this->processOptions));
+        $succeed = true;
+        $response = null;
+        try {
+            $result = event(new ETPEvent($this->eventData, $this->processOptions));
+        } catch (\Exception $exception) {
+            $succeed = false;
+            $response = $exception->getMessage();
+        }
 
         dispatch(
-            (new EventToSupervisor(Arr::last($result), $this->processOptions->getSubsystemId()))
+            (new EventToSupervisor(Arr::last($result), $this->processOptions->getSubsystemId(), $succeed, $response))
                 ->onConnection(config('integration-hub.supervisor-connection', 'default'))
                 ->onQueue(config('integration-hub.supervisor-queue', 'default'))
         );

@@ -57,4 +57,22 @@ interface Flow
      * @return Flow
      */
     public function removeNode(string $id): self;
+
+    /**
+     * Check step has conditions
+     *
+     * @param string $id
+     *
+     * @return bool
+     */
+    public function isConditional(string $id): bool;
+
+    /**
+     * Get conditions to move to next step
+     *
+     * @param string $id
+     *
+     * @return array
+     */
+    public function getCondition(string $id): array;
 }

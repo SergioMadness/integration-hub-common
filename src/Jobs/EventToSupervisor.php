@@ -24,14 +24,26 @@ class EventToSupervisor implements ShouldQueue
      */
     public $processId;
 
-    public function __construct(EventData $eventData, string $processId)
+    /**
+     * @var mixed
+     */
+    public $processResponse;
+
+    /**
+     * @var bool
+     */
+    public $succeed;
+
+    public function __construct(EventData $eventData, string $processId, bool $succeed = true, $processResponse = null)
     {
         $this->eventData = $eventData;
         $this->processId = $processId;
+        $this->processResponse = $processResponse;
+        $this->succeed = $succeed;
     }
 
     public function handle(): void
     {
-        event(new EventToSupervisorEvent($this->eventData, $this->processId));
+        event(new EventToSupervisorEvent($this->eventData, $this->processId, $this->succeed, $this->processResponse));
     }
 }

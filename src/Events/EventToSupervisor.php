@@ -15,9 +15,21 @@ class EventToSupervisor implements IEventToSupervisor
      */
     public $processId;
 
-    public function __construct(EventData $eventData, string $processId)
+    /**
+     * @var mixed
+     */
+    public $processResponse;
+
+    /**
+     * @var bool
+     */
+    public $succeed;
+
+    public function __construct(EventData $eventData, string $processId, bool $succeed = true, $processResponse = null)
     {
         $this->eventData = $eventData;
         $this->processId = $processId;
+        $this->processResponse = $processResponse;
+        $this->succeed = $succeed;
     }
 }
