@@ -28,4 +28,14 @@ interface EventData
      * @return mixed
      */
     public function setData($data);
+
+    /**
+     * Get value by key
+     *
+     * @param string $key
+     * @param mixed   $default
+     *
+     * @return mixed
+     */
+    public function get(string $key, $default = null);
 }
