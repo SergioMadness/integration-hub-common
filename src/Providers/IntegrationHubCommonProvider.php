@@ -11,6 +11,7 @@ class IntegrationHubCommonProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->register(ValidationProvider::class);
+        $this->app->register(EventServiceProvider::class);
 
         $this->app->singleton(IFieldMapper::class, FieldMapper::class);
         $this->app->singleton(IFilter::class, Filter::class);
