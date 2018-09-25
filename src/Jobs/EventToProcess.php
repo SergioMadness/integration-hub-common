@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\ProcessOptions;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Events\EventToProcess as ETPEvent;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Exceptions\ArrayException;
 
 /**
  * Job with event data for processing through queues
@@ -38,13 +39,20 @@ class EventToProcess implements ShouldQueue
         $response = null;
         try {
             $result = event(new ETPEvent($this->eventData, $this->processOptions));
+        } catch (ArrayException $ex) {
+            $succeed = false;
+            $response = $ex->getMessages();
+            $result = [$this->eventData];
         } catch (\Exception $exception) {
             $succeed = false;
             $response = $exception->getMessage();
+            $result = [$this->eventData];
         }
 
         dispatch(
-            (new EventToSupervisor(Arr::last($result), $this->processOptions->getSubsystemId(), $succeed, $response))
+            (new EventToSupervisor(Arr::last(Arr::where($result, function ($item) {
+                return $item !== null;
+            })), $this->processOptions->getSubsystemId(), $succeed, $response))
                 ->onConnection(config('integration-hub.supervisor-connection', 'default'))
                 ->onQueue(config('integration-hub.supervisor-queue', 'default'))
         );
