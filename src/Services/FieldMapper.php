@@ -19,12 +19,9 @@ class FieldMapper implements IFieldMapper
      */
     public function map(array $map, array $data): array
     {
-        $keysForMapping = array_keys($map);
-        foreach ($data as $key => $value) {
-            if (\in_array($key, $keysForMapping)) {
-                $data[$map[$key]] = $value;
-                unset($data[$key]);
-            }
+        foreach ($map as $from => $to) {
+            $data[$to] = $data[$from] ?? null;
+            unset($data[$from]);
         }
 
         return $data;
