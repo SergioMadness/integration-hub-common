@@ -1,5 +1,6 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Services;
 
+use Illuminate\Support\Arr;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\FieldMapper as IFieldMapper;
 
 /**
@@ -20,8 +21,7 @@ class FieldMapper implements IFieldMapper
     public function map(array $map, array $data): array
     {
         foreach ($map as $from => $to) {
-            $data[$to] = $data[$from] ?? null;
-            unset($data[$from]);
+            Arr::set($data, $to, Arr::get($data, $from));
         }
 
         return $data;
