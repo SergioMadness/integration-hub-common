@@ -52,7 +52,7 @@ class EventToProcess implements ShouldQueue
         dispatch(
             (new EventToSupervisor(Arr::last(Arr::where($result, function ($item) {
                 return $item !== null;
-            })), $this->processOptions->getSubsystemId(), $succeed, $response))
+            })), $this->processOptions->getId(), $succeed, $response))
                 ->onConnection(config('integration-hub.supervisor-connection', 'default'))
                 ->onQueue(config('integration-hub.supervisor-queue', 'default'))
         );
