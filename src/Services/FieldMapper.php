@@ -21,7 +21,9 @@ class FieldMapper implements IFieldMapper
     public function map(array $map, array $data): array
     {
         foreach ($map as $from => $to) {
-            Arr::set($data, $to, Arr::get($data, $from));
+            if (($value = Arr::get($data, $from)) !== null) {
+                Arr::set($data, $to, $value);
+            }
         }
 
         return $data;
