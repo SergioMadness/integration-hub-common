@@ -20,12 +20,13 @@ class FieldMapper implements IFieldMapper
      */
     public function map(array $map, array $data): array
     {
+        $result = [];
         foreach ($map as $from => $to) {
             if (($value = Arr::get($data, $from)) !== null) {
-                Arr::set($data, $to, $value);
+                Arr::set($result, $to, $value);
             }
         }
 
-        return $data;
+        return $result;
     }
 }
