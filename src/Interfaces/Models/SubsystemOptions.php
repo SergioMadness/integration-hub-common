@@ -14,6 +14,13 @@ interface SubsystemOptions
     public function getAvailableFields(): array;
 
     /**
+     * Get array fields, that subsystem generates
+     *
+     * @return array
+     */
+    public function getAvailableOutFields(): array;
+
+    /**
      * Get service settings
      *
      * @return array
