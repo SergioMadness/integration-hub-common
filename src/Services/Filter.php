@@ -1,5 +1,6 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Services;
 
+use Illuminate\Support\Arr;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\Filter as IFilter;
 
 /**
@@ -28,7 +29,7 @@ class Filter implements IFilter
                 $success = $condition['success'] ?? null;
                 $filterResult = $condition['result'] ?? null;
 
-                $value = $data[$field] ?? '';
+                $value = Arr::get($data, $field, '');
                 if ($field !== null && $this->checkCondition($value, $operation, $value1, $value2)) {
                     return $success !== null ? $this->filter($success, $data) : $filterResult;
                 }
