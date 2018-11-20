@@ -23,7 +23,7 @@ class FieldMapper implements IFieldMapper
         $result = [];
         foreach ($map as $from => $to) {
             if (($value = Arr::get($data, $from)) !== null) {
-                Arr::set($result, $to, $value);
+                \is_array($value) ? array_merge($result, $value) : Arr::set($result, $to, $value);
             }
         }
 
