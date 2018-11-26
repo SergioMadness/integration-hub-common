@@ -54,4 +54,11 @@ interface ProcessOptions
      * @return string
      */
     public function getHost(): string;
+
+    /**
+     * Need to stop on fail
+     *
+     * @return bool
+     */
+    public function stopOnFail(): bool;
 }
