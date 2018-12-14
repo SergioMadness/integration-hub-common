@@ -82,7 +82,7 @@ interface EventData extends Model
      *
      * @return EventData
      */
-    public function setCurrentStep($flowId, $stepId): self;
+    public function setCurrentStep(string $flowId, string $stepId): self;
 
     /**
      * Set process response
@@ -93,5 +93,5 @@ interface EventData extends Model
      *
      * @return EventData
      */
-    public function setProcessResponse($processId, $response, $succeed = true): self;
+    public function setProcessResponse(string $processId, $response, bool $succeed = true): self;
 }
