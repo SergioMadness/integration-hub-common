@@ -3,7 +3,6 @@
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use professionalweb\IntegrationHub\IntegrationHubDB\Models\Request;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Events\NewRequest as NewRequestEvent;
 
@@ -16,7 +15,7 @@ class NewRequest implements ShouldQueue
      */
     public $request;
 
-    public function __construct(Request $request)
+    public function __construct(EventData $request)
     {
         $this->request = $request;
     }
