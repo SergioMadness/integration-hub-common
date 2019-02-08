@@ -33,6 +33,13 @@ interface EventData extends Model
     public function getData();
 
     /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus(): string;
+
+    /**
      * Set data
      *
      * @param $data
