@@ -1,19 +1,20 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Events;
 
-use professionalweb\IntegrationHub\IntegrationHubDB\Models\Request;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Events\NewRequest as INewRequest;
 
 /**
  * New request / event
  * @package professionalweb\IntegrationHub\IntegrationHubCommon\Events
  */
-class NewRequest
+class NewRequest implements INewRequest
 {
     /**
-     * @var Request
+     * @var EventData
      */
     public $request;
 
-    public function __construct(Request $request)
+    public function __construct(EventData $request)
     {
         $this->request = $request;
     }

@@ -1,4 +1,4 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubDB\Interfaces\Models;
+<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models;
 
 /**
  * Subsystem settings
@@ -6,6 +6,13 @@
  */
 interface ProcessOptions
 {
+    /**
+     * Get process id
+     *
+     * @return string
+     */
+    public function getId(): string;
+
     /**
      * Get subsystem/driver ID to identify processor
      *
@@ -47,4 +54,11 @@ interface ProcessOptions
      * @return string
      */
     public function getHost(): string;
+
+    /**
+     * Need to stop on fail
+     *
+     * @return bool
+     */
+    public function stopOnFail(): bool;
 }

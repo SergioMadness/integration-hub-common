@@ -1,4 +1,4 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubDB\Interfaces\Models;
+<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models;
 
 /**
  * Interface for subsystem settings
@@ -12,6 +12,13 @@ interface SubsystemOptions
      * @return array
      */
     public function getAvailableFields(): array;
+
+    /**
+     * Get array fields, that subsystem generates
+     *
+     * @return array
+     */
+    public function getAvailableOutFields(): array;
 
     /**
      * Get service settings
