@@ -9,6 +9,9 @@ class ProcessException extends \Exception
 
     public function __construct(string $message = '', int $code = 0, array $messages = [])
     {
+        if (empty($message)) {
+            $message = json_encode($messages);
+        }
         parent::__construct($message, $code, null);
 
         $this->messages = $messages;
