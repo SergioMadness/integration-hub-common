@@ -38,7 +38,7 @@ class ExceptionProcessor implements IExceptionProcessor
     public function process(Request $request, \Exception $ex): ?Response
     {
         foreach ($this->processors as $processor) {
-            $response = $processor($request, $ex);
+            $response = call_user_func($processor, $request, $ex);
             if (!empty($response)) {
                 return $response;
             }
