@@ -1,11 +1,11 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Exceptions;
 
 use Illuminate\Http\Response;
-use Symfony\Component\Debug\ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Exceptions\ExceptionProcessor;
 
 class Handler extends ExceptionHandler
@@ -27,30 +27,30 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception $e
+     * @param \Exception $e
      *
      * @return void
      * @throws Exception
      */
     public function report(\Exception $e)
     {
-        parent::report($e);
     }
 
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Exception               $e
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception               $e
      *
      * @return Response
      * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     public function render($request, \Exception $e): Response
     {
         /** @var ExceptionProcessor $exceptionProcessor */
         $exceptionProcessor = app(ExceptionProcessor::class);
 
-        return $exceptionProcessor->process($request, $e);
+        return $exceptionProcessor->process($request, $e) ?? parent::render($request, $e);
     }
 }
