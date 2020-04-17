@@ -9,45 +9,43 @@ interface Flow
     /**
      * Get first node
      *
-     * @return null|string
+     * @return null|FlowStep
      */
-    public function head(): ?string;
+    public function head(): ?FlowStep;
 
     /**
      * Get last node
      *
-     * @return null|string
+     * @return null|FlowStep
      */
-    public function tail(): ?string;
+    public function tail(): ?FlowStep;
 
     /**
      * Get next step
      *
      * @param string $id
      *
-     * @return string
+     * @return FlowStep
      */
-    public function getNext(string $id): ?string;
+    public function getNext(string $id): ?FlowStep;
 
     /**
      * Get previous step
      *
      * @param string $id
      *
-     * @return string
+     * @return FlowStep
      */
-    public function getPrev(string $id): ?string;
+    public function getPrev(string $id): ?FlowStep;
 
     /**
      * Add node
      *
-     * @param string      $id
-     * @param null|string $next
-     * @param null|string $prev
+     * @param FlowStep $step
      *
      * @return Flow
      */
-    public function addNode(string $id, ?string $next, ?string $prev): self;
+    public function addNode(FlowStep $step): self;
 
     /**
      * Remove node
