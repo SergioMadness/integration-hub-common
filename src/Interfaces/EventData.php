@@ -92,6 +92,23 @@ interface EventData extends Model
     public function setCurrentStep(string $flowId, string $stepId): self;
 
     /**
+     * Set next step id
+     *
+     * @param string $flowId
+     * @param string $stepId
+     *
+     * @return $this
+     */
+    public function setNextStep(string $flowId, string $stepId): self;
+
+    /**
+     * Move to next step
+     *
+     * @return $this
+     */
+    public function move(): self;
+
+    /**
      * Set process response
      *
      * @param      $processId
