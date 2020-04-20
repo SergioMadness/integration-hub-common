@@ -102,6 +102,13 @@ interface EventData extends Model
     public function setNextStep(string $flowId, string $stepId): self;
 
     /**
+     * Get next step
+     *
+     * @return string
+     */
+    public function getNextStep(): string;
+
+    /**
      * Move to next step
      *
      * @return $this

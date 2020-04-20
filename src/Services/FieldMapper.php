@@ -25,7 +25,15 @@ class FieldMapper implements IFieldMapper
             if (($value = Arr::get($data, $from)) !== null) {
                 $to = (array)$to;
                 foreach ($to as $toItem) {
-                    Arr::set($result, $toItem, $value);
+                    if (empty($toItem)) {
+                        if (is_array($value)) {
+                            $result = array_merge($result, $value);
+                        } else {
+                            $result = $value;
+                        }
+                    } else {
+                        Arr::set($result, $toItem, $value);
+                    }
                 }
             }
         }
