@@ -7,6 +7,15 @@
 interface Flow
 {
     /**
+     * Get node by id
+     *
+     * @param string $id
+     *
+     * @return FlowStep|null
+     */
+    public function getNode(string $id): ?FlowStep;
+
+    /**
      * Get first node
      *
      * @return null|FlowStep
