@@ -1,7 +1,7 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Exceptions;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Interface for exception processors pool

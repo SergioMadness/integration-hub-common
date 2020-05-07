@@ -1,7 +1,7 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Exceptions;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Exceptions\ExceptionProcessor as IExceptionProcessor;
 
 /**
