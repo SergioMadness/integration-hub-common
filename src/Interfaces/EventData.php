@@ -125,4 +125,25 @@ interface EventData extends Model
      * @return EventData
      */
     public function setProcessResponse(string $processId, $response, bool $succeed = true): self;
+
+    /**
+     * Stop request processing
+     *
+     * @return self
+     */
+    public function stopPropagation(): self;
+
+    /**
+     * Get attempts quantity
+     *
+     * @return int
+     */
+    public function getAttemptQty(): int;
+
+    /**
+     * Set attempts to 0
+     *
+     * @return $this
+     */
+    public function dropAttempts(): self;
 }
