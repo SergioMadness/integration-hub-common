@@ -1,6 +1,6 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Exceptions;
 
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -34,6 +34,7 @@ class Handler extends ExceptionHandler
      */
     public function report(\Exception $e)
     {
+        parent::report($e);
     }
 
     /**
@@ -48,6 +49,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, \Exception $e): Response
     {
+        \Log::error($e);
         /** @var ExceptionProcessor $exceptionProcessor */
         $exceptionProcessor = app(ExceptionProcessor::class);
 
