@@ -92,6 +92,30 @@ interface EventData extends Model
     public function setCurrentStep(string $flowId, string $stepId): self;
 
     /**
+     * Set next step id
+     *
+     * @param string $flowId
+     * @param string $stepId
+     *
+     * @return $this
+     */
+    public function setNextStep(string $flowId, string $stepId): self;
+
+    /**
+     * Get next step
+     *
+     * @return string
+     */
+    public function getNextStep(): string;
+
+    /**
+     * Move to next step
+     *
+     * @return $this
+     */
+    public function move(): self;
+
+    /**
      * Set process response
      *
      * @param      $processId
@@ -101,4 +125,25 @@ interface EventData extends Model
      * @return EventData
      */
     public function setProcessResponse(string $processId, $response, bool $succeed = true): self;
+
+    /**
+     * Stop request processing
+     *
+     * @return self
+     */
+    public function stopPropagation(): self;
+
+    /**
+     * Get attempts quantity
+     *
+     * @return int
+     */
+    public function getAttemptQty(): int;
+
+    /**
+     * Set attempts to 0
+     *
+     * @return $this
+     */
+    public function dropAttempts(): self;
 }

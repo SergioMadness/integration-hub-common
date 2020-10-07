@@ -40,10 +40,12 @@ class EventToProcess implements ShouldQueue
         try {
             $result = event(new ETPEvent($this->eventData, $this->processOptions));
         } catch (ArrayException $ex) {
+            \Log::error($ex);
             $succeed = false;
             $response = $ex->getMessages();
             $result = [$this->eventData];
         } catch (\Exception $exception) {
+            \Log::error($exception);
             $succeed = false;
             $response = $exception->getMessage();
             $result = [$this->eventData];

@@ -68,7 +68,9 @@ class Filter implements IFilter
                 $result = ($value == $value1);
                 break;
             case self::CONDITION_IN:
-                $result = \in_array($value, (array)$value1);
+                $result = \in_array($value, array_map(function ($item) {
+                    return \is_string($item) ? mb_strtolower($item) : $item;
+                }, (array)$value1 ));
                 break;
             case self::CONDITION_LESS:
                 $result = ($value < $value1);
