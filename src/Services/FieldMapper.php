@@ -32,12 +32,31 @@ class FieldMapper implements IFieldMapper
                             $result = $value;
                         }
                     } else {
-                        Arr::set($result, $toItem, $value);
+                        $this->setTo($result, $toItem, $value);
+//                        Arr::set($result, $toItem, $value);
                     }
                 }
             }
         }
 
         return $result;
+    }
+
+    /**
+     * Prepare target field
+     *
+     * @param array $data
+     * @param       $to
+     * @param       $value
+     */
+    protected function setTo(array &$data, $to, $value): void
+    {
+        if (strpos($to, '=>') !== false) {
+            $parts = explode('=>', $to);
+            $to = $parts[1];
+            $value = eval('return ' . $parts[0] . ';');
+        }
+
+        Arr::set($data, $to, $value);
     }
 }
