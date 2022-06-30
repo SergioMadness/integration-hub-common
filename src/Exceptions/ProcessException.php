@@ -5,7 +5,7 @@ class ProcessException extends \Exception
     /**
      * @var array
      */
-    private $messages = [];
+    private array $messages;
 
     public function __construct(string $message = '', int $code = 0, array $messages = [])
     {

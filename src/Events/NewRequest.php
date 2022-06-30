@@ -12,7 +12,7 @@ class NewRequest implements INewRequest
     /**
      * @var EventData
      */
-    public $request;
+    public EventData $request;
 
     public function __construct(EventData $request)
     {

@@ -14,7 +14,8 @@
   "prefer-stable": true,
   "require": {
     "php": ">=7.4",
-    "illuminate/support": "5.*"
+    "illuminate/support": "5.*",
+    "professionalweb/lms-common": "dev-develop"
   },
   "require-dev": {
   },

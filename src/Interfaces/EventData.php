@@ -1,6 +1,6 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces;
 
-use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\Model;
+use professionalweb\lms\Common\Interfaces\Models\Model;
 
 /**
  * Interface for object has data
@@ -17,13 +17,6 @@ interface EventData extends Model
     public const STATUS_FAILED = 'failed';
 
     public const STATUS_RETRY = 'need_another_attempt';
-
-    /**
-     * Get event id
-     *
-     * @return string
-     */
-    public function getId(): string;
 
     /**
      * Get data
@@ -118,9 +111,9 @@ interface EventData extends Model
     /**
      * Set process response
      *
-     * @param      $processId
-     * @param      $response
-     * @param bool $succeed
+     * @param string $processId
+     * @param        $response
+     * @param bool   $succeed
      *
      * @return EventData
      */

@@ -8,7 +8,7 @@ class EventToSupervisor implements IEventToSupervisor
     /**
      * @var ProcessResponse
      */
-    protected $processResponse;
+    protected ProcessResponse $processResponse;
 
     public function __construct(ProcessResponse $response)
     {

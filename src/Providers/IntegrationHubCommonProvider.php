@@ -17,6 +17,5 @@ class IntegrationHubCommonProvider extends ServiceProvider
 
         $this->app->singleton(IFilter::class, Filter::class);
         $this->app->singleton(IFieldMapper::class, FieldMapper::class);
-        $this->app->singleton(IExceptionProcessor::class, ExceptionProcessor::class);
     }
 }
