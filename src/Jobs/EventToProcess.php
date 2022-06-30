@@ -20,12 +20,12 @@ class EventToProcess implements ShouldQueue
     /**
      * @var EventData
      */
-    public $eventData;
+    public EventData $eventData;
 
     /**
      * @var ProcessOptions
      */
-    public $processOptions;
+    public ProcessOptions $processOptions;
 
     public function __construct(EventData $eventData, ProcessOptions $processOptions)
     {

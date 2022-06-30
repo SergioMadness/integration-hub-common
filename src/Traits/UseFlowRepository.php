@@ -11,7 +11,7 @@ trait UseFlowRepository
     /**
      * @var FlowRepository
      */
-    private $flowRepository;
+    private FlowRepository $flowRepository;
 
     /**
      * @return FlowRepository

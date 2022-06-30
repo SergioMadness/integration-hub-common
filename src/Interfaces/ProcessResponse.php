@@ -16,9 +16,9 @@ interface ProcessResponse
     /**
      * Get process id
      *
-     * @return mixed
+     * @return string
      */
-    public function getProcessId();
+    public function getProcessId(): string;
 
     /**
      * Process succeeded

@@ -11,7 +11,7 @@ trait UseRequestRepository
     /**
      * @var RequestRepository
      */
-    private $repository;
+    private RequestRepository $repository;
 
     /**
      * Set request repository

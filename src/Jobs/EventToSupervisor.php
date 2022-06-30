@@ -18,12 +18,12 @@ class EventToSupervisor implements ShouldQueue
     /**
      * @var EventData
      */
-    public $eventData;
+    public EventData $eventData;
 
     /**
      * @var string
      */
-    public $processId;
+    public string $processId;
 
     /**
      * @var mixed
@@ -33,7 +33,7 @@ class EventToSupervisor implements ShouldQueue
     /**
      * @var bool
      */
-    public $succeed;
+    public bool $succeed;
 
     public function __construct(EventData $eventData, string $processId, bool $succeed = true, $processResponse = null)
     {

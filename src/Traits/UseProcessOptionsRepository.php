@@ -11,7 +11,7 @@ trait UseProcessOptionsRepository
     /**
      * @var ProcessOptionsRepository
      */
-    private $processOptionsRepository;
+    private ProcessOptionsRepository $processOptionsRepository;
 
     /**
      * @return ProcessOptionsRepository

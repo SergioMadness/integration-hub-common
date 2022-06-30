@@ -1,5 +1,6 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories;
 
+use professionalweb\lms\Common\Interfaces\Repositories\Repository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\Model;
 
 /**

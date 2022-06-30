@@ -13,7 +13,7 @@ trait HasProcessOptions
     /**
      * @var ProcessOptions
      */
-    private $processOptions;
+    private ProcessOptions $processOptions;
 
     /**
      * Set options with values

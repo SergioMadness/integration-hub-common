@@ -21,9 +21,9 @@ interface EventData extends Model
     /**
      * Get event id
      *
-     * @return mixed
+     * @return string
      */
-    public function getId();
+    public function getId(): string;
 
     /**
      * Get data
@@ -61,16 +61,16 @@ interface EventData extends Model
     /**
      * Get current flow id
      *
-     * @return mixed
+     * @return string|null
      */
-    public function getCurrentFlow();
+    public function getCurrentFlow(): ?string;
 
     /**
      * Get current step id
      *
-     * @return mixed
+     * @return string|null
      */
-    public function getCurrentStep();
+    public function getCurrentStep(): ?string;
 
     /**
      * Set status
@@ -84,8 +84,8 @@ interface EventData extends Model
     /**
      * Set current step
      *
-     * @param $flowId
-     * @param $stepId
+     * @param string $flowId
+     * @param string $stepId
      *
      * @return EventData
      */

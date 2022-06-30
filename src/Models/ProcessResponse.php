@@ -8,17 +8,17 @@ class ProcessResponse implements IProcessResponse
     /**
      * @var EventData
      */
-    private $eventData;
+    private EventData $eventData;
 
     /**
-     * @var mixed
+     * @var string
      */
-    private $processId;
+    private string $processId;
 
     /**
      * @var bool
      */
-    private $isSucceeded;
+    private bool $isSucceeded;
 
     /**
      * @var mixed
@@ -94,9 +94,9 @@ class ProcessResponse implements IProcessResponse
     /**
      * Get process id
      *
-     * @return mixed
+     * @return string
      */
-    public function getProcessId()
+    public function getProcessId(): string
     {
         return $this->processId;
     }
