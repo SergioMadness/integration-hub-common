@@ -1,8 +1,8 @@
 <?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories;
 
+use Illuminate\Database\Eloquent\Model;
 use professionalweb\lms\Common\Interfaces\Repositories\Repository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\Flow;
-use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\Model;
 
 /**
  * Flow repository interface
