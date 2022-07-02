@@ -3,11 +3,19 @@
 use Illuminate\Support\ServiceProvider;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Services\Filter;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Services\FieldMapper;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow\GetFlow;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow\StoreFlow;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow\DeleteFlow;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow\GetFlowList;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Repositories\FlowRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Repositories\RequestRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Repositories\ProcessOptionsRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\Filter as IFilter;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow\GetFlow as IGetFlow;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\FieldMapper as IFieldMapper;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow\StoreFlow as IStoreFlow;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow\DeleteFlow as IDeleteFlow;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow\GetFlowList as IGetFlowList;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories\FlowRepository as IFlowRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories\RequestRepository as IRequestRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories\ProcessOptionsRepository as IProcessOptionsRepository;
@@ -34,5 +42,10 @@ class IntegrationHubCommonProvider extends ServiceProvider
         $this->app->singleton(IProcessOptionsRepository::class, function () {
             return new ProcessOptionsRepository();
         });
+
+        $this->app->bind(IGetFlow::class, GetFlow::class);
+        $this->app->bind(IStoreFlow::class, StoreFlow::class);
+        $this->app->bind(IDeleteFlow::class,DeleteFlow::class);
+        $this->app->bind(IGetFlowList::class, GetFlowList::class);
     }
 }
