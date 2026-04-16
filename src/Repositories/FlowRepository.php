@@ -1,8 +1,12 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Repositories;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Repositories;
 
 use professionalweb\lms\Common\Abstractions\EntityRepository;
-use professionalweb\IntegrationHub\IntegrationHubCommon\Models\Flow as FlowModel;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\Flow;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Models\Flow as FlowModel;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories\FlowRepository as IFlowRepository;
 
 /**

@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow;
 
 use professionalweb\lms\Common\Interfaces\Action;
 

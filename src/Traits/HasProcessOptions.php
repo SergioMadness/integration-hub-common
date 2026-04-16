@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Traits;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Traits;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\Subsystem;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\ProcessOptions;
@@ -16,6 +20,14 @@ trait HasProcessOptions
     private ProcessOptions $processOptions;
 
     /**
+     * @return ProcessOptions
+     */
+    public function getProcessOptions(): ProcessOptions
+    {
+        return $this->processOptions;
+    }
+
+    /**
      * Set options with values
      *
      * @param ProcessOptions $options
@@ -27,13 +39,5 @@ trait HasProcessOptions
         $this->processOptions = $options;
 
         return $this;
-    }
-
-    /**
-     * @return ProcessOptions
-     */
-    public function getProcessOptions(): ProcessOptions
-    {
-        return $this->processOptions;
     }
 }

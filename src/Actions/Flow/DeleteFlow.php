@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -38,6 +42,16 @@ class DeleteFlow implements IDeleteFlow
     }
 
     /**
+     * Get flow id
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->flowId;
+    }
+
+    /**
      * Set flow id
      *
      * @param string $id
@@ -49,15 +63,5 @@ class DeleteFlow implements IDeleteFlow
         $this->flowId = $id;
 
         return $this;
-    }
-
-    /**
-     * Get flow id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->flowId;
     }
 }

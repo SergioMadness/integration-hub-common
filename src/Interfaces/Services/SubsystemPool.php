@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\SubsystemOptions;
 
@@ -10,8 +14,8 @@ interface SubsystemPool
     /**
      * Register module
      *
-     * @param string         $name
-     * @param string         $subsystemId
+     * @param string $name
+     * @param string $subsystemId
      * @param SubsystemOptions $options
      *
      * @return static

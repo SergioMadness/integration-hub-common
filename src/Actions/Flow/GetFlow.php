@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -38,6 +42,16 @@ class GetFlow implements IGetFlow
     }
 
     /**
+     * Get flow id
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->flowId;
+    }
+
+    /**
      * Set flow id
      *
      * @param string $id
@@ -49,15 +63,5 @@ class GetFlow implements IGetFlow
         $this->flowId = $id;
 
         return $this;
-    }
-
-    /**
-     * Get flow id
-     *
-     * @return string
-     */
-    public function getId(): string
-    {
-        return $this->flowId;
     }
 }

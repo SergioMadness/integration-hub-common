@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Repositories;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Repositories;
 
 use professionalweb\lms\Common\Abstractions\EntityRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Models\ProcessOptions;

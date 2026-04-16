@@ -1,6 +1,12 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Exceptions;
+<?php
 
-class ProcessException extends \Exception
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Exceptions;
+
+use Exception;
+
+class ProcessException extends Exception
 {
     /**
      * @var array

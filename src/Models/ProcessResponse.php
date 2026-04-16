@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Models;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\ProcessResponse as IProcessResponse;
@@ -34,30 +38,6 @@ class ProcessResponse implements IProcessResponse
     }
 
     /**
-     * @param EventData $eventData
-     *
-     * @return $this
-     */
-    public function setEventData(EventData $eventData): self
-    {
-        $this->eventData = $eventData;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $processId
-     *
-     * @return $this
-     */
-    public function setProcessId($processId): self
-    {
-        $this->processId = $processId;
-
-        return $this;
-    }
-
-    /**
      * @param bool $isSucceeded
      *
      * @return $this
@@ -65,18 +45,6 @@ class ProcessResponse implements IProcessResponse
     public function setIsSucceeded(bool $isSucceeded): self
     {
         $this->isSucceeded = $isSucceeded;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $processResponse
-     *
-     * @return $this
-     */
-    public function setProcessResponse($processResponse): self
-    {
-        $this->processResponse = $processResponse;
 
         return $this;
     }
@@ -92,6 +60,18 @@ class ProcessResponse implements IProcessResponse
     }
 
     /**
+     * @param EventData $eventData
+     *
+     * @return $this
+     */
+    public function setEventData(EventData $eventData): self
+    {
+        $this->eventData = $eventData;
+
+        return $this;
+    }
+
+    /**
      * Get process id
      *
      * @return string
@@ -99,6 +79,18 @@ class ProcessResponse implements IProcessResponse
     public function getProcessId(): string
     {
         return $this->processId;
+    }
+
+    /**
+     * @param mixed $processId
+     *
+     * @return $this
+     */
+    public function setProcessId($processId): self
+    {
+        $this->processId = $processId;
+
+        return $this;
     }
 
     /**
@@ -119,5 +111,17 @@ class ProcessResponse implements IProcessResponse
     public function getProcessResponse()
     {
         return $this->processResponse;
+    }
+
+    /**
+     * @param mixed $processResponse
+     *
+     * @return $this
+     */
+    public function setProcessResponse($processResponse): self
+    {
+        $this->processResponse = $processResponse;
+
+        return $this;
     }
 }

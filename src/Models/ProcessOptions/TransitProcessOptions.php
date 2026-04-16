@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Models\ProcessOptions;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Models\ProcessOptions;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Models\ProcessOptions;
 
@@ -8,8 +12,8 @@ class TransitProcessOptions extends ProcessOptions
     {
         parent::__construct([
             'subsystem_id' => $systemId,
-            'mapping'      => [],
-            'options'      => [],
+            'mapping' => [],
+            'options' => [],
         ]);
         $this->setAttribute('id', $systemId);
     }

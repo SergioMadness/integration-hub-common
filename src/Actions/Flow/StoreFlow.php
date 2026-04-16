@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -21,6 +25,14 @@ class StoreFlow implements IStoreFlow
     }
 
     /**
+     * @return string
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
      * @param string $id
      *
      * @return IStoreFlow
@@ -30,13 +42,5 @@ class StoreFlow implements IStoreFlow
         $this->id = $id;
 
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getId(): ?string
-    {
-        return $this->id;
     }
 }

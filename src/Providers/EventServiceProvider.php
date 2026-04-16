@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Providers;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Providers;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Listeners\TransitListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

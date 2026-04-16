@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Events;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Events;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\ProcessResponse;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Events\EventToSupervisor as IEventToSupervisor;

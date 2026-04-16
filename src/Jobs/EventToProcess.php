@@ -1,5 +1,11 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Jobs;
+<?php
 
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Jobs;
+
+use Log;
+use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -40,19 +46,19 @@ class EventToProcess implements ShouldQueue
         try {
             $result = event(new ETPEvent($this->eventData, $this->processOptions));
         } catch (ArrayException $ex) {
-            \Log::error($ex);
+            Log::error($ex);
             $succeed = false;
             $response = $ex->getMessages();
             $result = [$this->eventData];
-        } catch (\Exception $exception) {
-            \Log::error($exception);
+        } catch (Exception $exception) {
+            Log::error($exception);
             $succeed = false;
             $response = $exception->getMessage();
             $result = [$this->eventData];
         }
 
         dispatch(
-            (new EventToSupervisor(Arr::last(Arr::where($result, function ($item) {
+            (new EventToSupervisor(Arr::last(Arr::where($result, static function ($item): bool {
                 return $item !== null;
             })), $this->processOptions->getId(), $succeed, $response))
                 ->onConnection(config('integration-hub.supervisor-connection', 'default'))

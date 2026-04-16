@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Services;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Services;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\SubsystemOptions;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\SubsystemPool as ISubsystemPool;
@@ -15,8 +19,8 @@ class SubsystemPool implements ISubsystemPool
     /**
      * Register module
      *
-     * @param string         $name
-     * @param string         $subsystemId
+     * @param string $name
+     * @param string $subsystemId
      * @param SubsystemOptions $options
      *
      * @return static
@@ -24,9 +28,9 @@ class SubsystemPool implements ISubsystemPool
     public function register(string $name, string $subsystemId, SubsystemOptions $options): ISubsystemPool
     {
         $this->subsystems[$subsystemId] = [
-            'name'        => $name,
+            'name' => $name,
             'subsystemId' => $subsystemId,
-            'options'     => $options,
+            'options' => $options,
         ];
 
         return $this;

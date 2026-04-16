@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Services;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Services;
 
 use Illuminate\Support\Arr;
 use professionalweb\lms\Common\Interfaces\Services\EventSubsystem\FieldMapper as IFieldMapper;

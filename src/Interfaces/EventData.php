@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces;
 
 use professionalweb\lms\Common\Interfaces\Models\Model;
 
@@ -45,7 +49,7 @@ interface EventData extends Model
      * Get value by key
      *
      * @param string $key
-     * @param mixed  $default
+     * @param mixed $default
      *
      * @return mixed
      */
@@ -113,7 +117,7 @@ interface EventData extends Model
      *
      * @param string $processId
      * @param        $response
-     * @param bool   $succeed
+     * @param bool $succeed
      *
      * @return EventData
      */

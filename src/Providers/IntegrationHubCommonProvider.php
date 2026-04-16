@@ -1,4 +1,8 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Providers;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Services\Filter;
@@ -10,8 +14,8 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow\DeleteFlow;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Actions\Flow\GetFlowList;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Repositories\FlowRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Repositories\RequestRepository;
-use professionalweb\IntegrationHub\IntegrationHubCommon\Repositories\ProcessOptionsRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\Filter as IFilter;
+use professionalweb\IntegrationHub\IntegrationHubCommon\Repositories\ProcessOptionsRepository;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow\GetFlow as IGetFlow;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\FieldMapper as IFieldMapper;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Actions\Flow\StoreFlow as IStoreFlow;
@@ -38,18 +42,18 @@ class IntegrationHubCommonProvider extends ServiceProvider
         $this->app->singleton(IFieldMapper::class, FieldMapper::class);
 
         $this->app->singleton(IRequestRepository::class, RequestRepository::class);
-        $this->app->singleton(IFlowRepository::class, function () {
+        $this->app->singleton(IFlowRepository::class, static function () {
             return new FlowRepository();
         });
-        $this->app->singleton(IProcessOptionsRepository::class, function () {
+        $this->app->singleton(IProcessOptionsRepository::class, static function () {
             return new ProcessOptionsRepository();
         });
 
         $this->app->bind(IGetFlow::class, GetFlow::class);
         $this->app->bind(IStoreFlow::class, StoreFlow::class);
-        $this->app->bind(IDeleteFlow::class,DeleteFlow::class);
+        $this->app->bind(IDeleteFlow::class, DeleteFlow::class);
         $this->app->bind(IGetFlowList::class, GetFlowList::class);
 
-        $this->app->singleton(ISubsystemPool::class,SubsystemPool::class);
+        $this->app->singleton(ISubsystemPool::class, SubsystemPool::class);
     }
 }
