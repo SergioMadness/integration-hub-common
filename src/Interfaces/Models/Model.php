@@ -16,5 +16,5 @@ interface Model
      *
      * @return $this
      */
-    public function fill(array $attributes): Model;
+    public function fill(array $attributes);
 }
