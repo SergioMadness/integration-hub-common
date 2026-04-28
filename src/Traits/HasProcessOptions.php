@@ -9,19 +9,12 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Models\Proces
 
 /**
  * Trait for subsystems
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Traits
  * @mixin Subsystem
  */
 trait HasProcessOptions
 {
-    /**
-     * @var ProcessOptions
-     */
     private ProcessOptions $processOptions;
 
-    /**
-     * @return ProcessOptions
-     */
     public function getProcessOptions(): ProcessOptions
     {
         return $this->processOptions;
@@ -29,10 +22,6 @@ trait HasProcessOptions
 
     /**
      * Set options with values
-     *
-     * @param ProcessOptions $options
-     *
-     * @return Subsystem
      */
     public function setProcessOptions(ProcessOptions $options): Subsystem
     {

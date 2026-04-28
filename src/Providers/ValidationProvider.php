@@ -11,7 +11,7 @@ class ValidationProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Validator::extend('equal', static function (string $attribute, mixed $value, array $parameters, \Illuminate\Validation\Validator $validator): bool {
+        Validator::extend('equal', static function (string $attribute, mixed $value, array $parameters): bool {
             return $value === $parameters;
         });
     }

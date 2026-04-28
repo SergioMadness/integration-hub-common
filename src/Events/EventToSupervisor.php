@@ -9,27 +9,19 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Events\EventT
 
 class EventToSupervisor implements IEventToSupervisor
 {
-    /**
-     * @var ProcessResponse
-     */
-    protected ProcessResponse $processResponse;
+    private ProcessResponse $processResponse;
 
     public function __construct(ProcessResponse $response)
     {
         $this->setProcessResponse($response);
     }
 
-    /**
-     * @return ProcessResponse
-     */
     public function getProcessResponse(): ProcessResponse
     {
         return $this->processResponse;
     }
 
     /**
-     * @param ProcessResponse $processResponse
-     *
      * @return EventToSupervisor
      */
     public function setProcessResponse(ProcessResponse $processResponse): self

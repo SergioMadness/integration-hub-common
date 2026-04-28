@@ -9,11 +9,6 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Events\EventT
 
 class TransitListener
 {
-    /**
-     * @param EventToProcess $eventToProcess
-     *
-     * @return EventData
-     */
     public function handle(EventToProcess $eventToProcess): EventData
     {
         return $eventToProcess->getEventData();

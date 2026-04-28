@@ -9,17 +9,13 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Events\NewReq
 
 /**
  * New request / event
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Events
  */
 class NewRequest implements INewRequest
 {
-    /**
-     * @var EventData
-     */
-    public EventData $request;
-
-    public function __construct(EventData $request)
+    public function __construct(
+        public readonly EventData $request
+    )
     {
-        $this->request = $request;
+
     }
 }

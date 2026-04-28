@@ -12,18 +12,10 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Services\Subs
  */
 class SubsystemPool implements ISubsystemPool
 {
-
-    /** @var array */
     private array $subsystems = [];
 
     /**
      * Register module
-     *
-     * @param string $name
-     * @param string $subsystemId
-     * @param SubsystemOptions $options
-     *
-     * @return static
      */
     public function register(string $name, string $subsystemId, SubsystemOptions $options): ISubsystemPool
     {
@@ -38,8 +30,6 @@ class SubsystemPool implements ISubsystemPool
 
     /**
      * Get all subsystems
-     *
-     * @return array
      */
     public function getAll(): array
     {
@@ -48,10 +38,6 @@ class SubsystemPool implements ISubsystemPool
 
     /**
      * Get process options by subsystem id
-     *
-     * @param string $id
-     *
-     * @return SubsystemOptions|null
      */
     public function getBySubsystemId(string $id): ?SubsystemOptions
     {

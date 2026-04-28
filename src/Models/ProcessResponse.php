@@ -9,25 +9,13 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\ProcessRespon
 
 class ProcessResponse implements IProcessResponse
 {
-    /**
-     * @var EventData
-     */
     private EventData $eventData;
 
-    /**
-     * @var string
-     */
     private string $processId;
 
-    /**
-     * @var bool
-     */
     private bool $isSucceeded;
 
-    /**
-     * @var mixed
-     */
-    private $processResponse;
+    private mixed $processResponse;
 
     public function __construct(EventData $eventData, string $processId, bool $succeed = true, $processResponse = null)
     {
@@ -38,8 +26,6 @@ class ProcessResponse implements IProcessResponse
     }
 
     /**
-     * @param bool $isSucceeded
-     *
      * @return $this
      */
     public function setIsSucceeded(bool $isSucceeded): self
@@ -51,19 +37,12 @@ class ProcessResponse implements IProcessResponse
 
     /**
      * Get event data object
-     *
-     * @return EventData
      */
     public function getEventData(): EventData
     {
         return $this->eventData;
     }
 
-    /**
-     * @param EventData $eventData
-     *
-     * @return $this
-     */
     public function setEventData(EventData $eventData): self
     {
         $this->eventData = $eventData;
@@ -73,19 +52,12 @@ class ProcessResponse implements IProcessResponse
 
     /**
      * Get process id
-     *
-     * @return string
      */
     public function getProcessId(): string
     {
         return $this->processId;
     }
 
-    /**
-     * @param mixed $processId
-     *
-     * @return $this
-     */
     public function setProcessId($processId): self
     {
         $this->processId = $processId;
@@ -95,8 +67,6 @@ class ProcessResponse implements IProcessResponse
 
     /**
      * Process succeeded
-     *
-     * @return bool
      */
     public function isSucceed(): bool
     {
@@ -105,19 +75,12 @@ class ProcessResponse implements IProcessResponse
 
     /**
      * Get process response
-     *
-     * @return mixed
      */
     public function getProcessResponse()
     {
         return $this->processResponse;
     }
 
-    /**
-     * @param mixed $processResponse
-     *
-     * @return $this
-     */
     public function setProcessResponse($processResponse): self
     {
         $this->processResponse = $processResponse;

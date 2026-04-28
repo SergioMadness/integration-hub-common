@@ -6,8 +6,5 @@ namespace professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Excepti
 
 interface ArrayException
 {
-    /**
-     * @return array
-     */
     public function getMessages(): array;
 }

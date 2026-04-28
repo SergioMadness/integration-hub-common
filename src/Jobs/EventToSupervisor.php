@@ -13,38 +13,19 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Events\EventToSupervisor
 
 /**
  * Job to return event to supervisor
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Jobs
  */
-class EventToSupervisor implements ShouldQueue
+readonly class EventToSupervisor implements ShouldQueue
 {
     use InteractsWithQueue, Queueable;
 
-    /**
-     * @var EventData
-     */
-    public EventData $eventData;
-
-    /**
-     * @var string
-     */
-    public string $processId;
-
-    /**
-     * @var mixed
-     */
-    public $processResponse;
-
-    /**
-     * @var bool
-     */
-    public bool $succeed;
-
-    public function __construct(EventData $eventData, string $processId, bool $succeed = true, $processResponse = null)
+    public function __construct(
+        public EventData $eventData,
+        public string $processId,
+        public bool $succeed = true,
+        public mixed $processResponse = null
+    )
     {
-        $this->eventData = $eventData;
-        $this->processId = $processId;
-        $this->processResponse = $processResponse;
-        $this->succeed = $succeed;
+
     }
 
     public function handle(): void

@@ -14,9 +14,7 @@
   "prefer-stable": true,
   "require": {
     "php": ">=8.4",
-    "laravel/framework": "^10.4",
-    "professionalweb/lms-common": "dev-develop",
-    "professionalweb/lms-saas": "dev-develop"
+    "laravel/framework": "^10.4"
   },
   "require-dev": {
   },

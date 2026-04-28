@@ -9,18 +9,12 @@ use professionalweb\lms\Common\Interfaces\Services\EventSubsystem\FieldMapper as
 
 /**
  * Params/fields mapper
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Services
  */
 class FieldMapper implements IFieldMapper
 {
 
     /**
      * Map
-     *
-     * @param array $map
-     * @param array $data
-     *
-     * @return array
      */
     public function map(array $map, array $data): array
     {
@@ -48,14 +42,10 @@ class FieldMapper implements IFieldMapper
 
     /**
      * Prepare target field
-     *
-     * @param array $data
-     * @param       $to
-     * @param       $value
      */
     protected function setTo(array &$data, $to, $value): void
     {
-        if (strpos($to, '=>') !== false) {
+        if (str_contains($to, '=>')) {
             $parts = explode('=>', $to);
             $to = $parts[1];
             $value = eval('return ' . $parts[0] . ';');

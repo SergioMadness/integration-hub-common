@@ -10,26 +10,16 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Events\EventT
 
 class EventToProcess implements IEventToProcess
 {
-    /**
-     * @var EventData
-     */
-    public EventData $eventData;
-
-    /**
-     * @var ProcessOptions
-     */
-    public ProcessOptions $processOptions;
-
-    public function __construct(EventData $eventData, ProcessOptions $processOptions)
+    public function __construct(
+        public EventData      $eventData,
+        public ProcessOptions $processOptions
+    )
     {
-        $this->eventData = $eventData;
-        $this->processOptions = $processOptions;
+
     }
 
     /**
      * Get process options
-     *
-     * @return ProcessOptions
      */
     public function getProcessOptions(): ProcessOptions
     {
@@ -38,8 +28,6 @@ class EventToProcess implements IEventToProcess
 
     /**
      * Get event data
-     *
-     * @return EventData
      */
     public function getEventData(): EventData
     {

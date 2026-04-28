@@ -8,9 +8,6 @@ use Exception;
 
 class ProcessException extends Exception
 {
-    /**
-     * @var array
-     */
     private array $messages;
 
     public function __construct(string $message = '', int $code = 0, array $messages = [])
@@ -25,8 +22,6 @@ class ProcessException extends Exception
 
     /**
      * Get exception messages
-     *
-     * @return array
      */
     public function getMessages(): array
     {

@@ -15,7 +15,6 @@ use function count;
 
 /**
  * Process flow model
- * @package App\Models
  *
  * @property string $id
  * @property string $name
@@ -46,9 +45,6 @@ class Flow extends UUIDModel implements IFlow, Model
     /**
      * Get next node
      *
-     * @param string $id
-     *
-     * @return FlowStep
      * @throws Exception
      */
     public function getNext(string $id): ?FlowStep
@@ -65,7 +61,6 @@ class Flow extends UUIDModel implements IFlow, Model
     /**
      * Get first node
      *
-     * @return null|FlowStep
      * @throws Exception
      */
     public function head(): ?FlowStep
@@ -76,9 +71,6 @@ class Flow extends UUIDModel implements IFlow, Model
     /**
      * Get node by id
      *
-     * @param string $id
-     *
-     * @return FlowStep
      * @throws Exception
      */
     public function getNode(string $id): ?FlowStep
@@ -103,10 +95,6 @@ class Flow extends UUIDModel implements IFlow, Model
 
     /**
      * Translate array to flow step model
-     *
-     * @param array $itemData
-     *
-     * @return FlowStep
      */
     protected function makeFlowStep(array $itemData): FlowStep
     {
@@ -121,9 +109,6 @@ class Flow extends UUIDModel implements IFlow, Model
     /**
      * Get previous step
      *
-     * @param string $id
-     *
-     * @return FlowStep
      * @throws Exception
      */
     public function getPrev(string $id): ?FlowStep
@@ -136,9 +121,6 @@ class Flow extends UUIDModel implements IFlow, Model
     /**
      * Check next step has condition
      *
-     * @param string $id
-     *
-     * @return bool
      * @throws Exception
      */
     public function isConditional(string $id): bool
@@ -149,9 +131,6 @@ class Flow extends UUIDModel implements IFlow, Model
     /**
      * Get condition for flow step
      *
-     * @param string $id
-     *
-     * @return array
      * @throws Exception
      */
     public function getCondition(string $id): array
@@ -161,10 +140,6 @@ class Flow extends UUIDModel implements IFlow, Model
 
     /**
      * Add node
-     *
-     * @param FlowStep $step
-     *
-     * @return IFlow
      */
     public function addNode(FlowStep $step): IFlow
     {
@@ -175,10 +150,6 @@ class Flow extends UUIDModel implements IFlow, Model
 
     /**
      * Remove node
-     *
-     * @param string $id
-     *
-     * @return IFlow
      */
     public function removeNode(string $id): IFlow
     {
@@ -202,7 +173,6 @@ class Flow extends UUIDModel implements IFlow, Model
     /**
      * Get last node
      *
-     * @return null|FlowStep
      * @throws Exception
      */
     public function tail(): ?FlowStep

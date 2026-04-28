@@ -8,21 +8,13 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories\
 
 /**
  * Trait for classes that use request repository
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Traits
  */
 trait UseRequestRepository
 {
-    /**
-     * @var RequestRepository
-     */
     private RequestRepository $repository;
 
     /**
      * Set request repository
-     *
-     * @param RequestRepository $repository
-     *
-     * @return self
      */
     public function setRequestRepository(RequestRepository $repository): self
     {
@@ -33,8 +25,6 @@ trait UseRequestRepository
 
     /**
      * Get request repository
-     *
-     * @return RequestRepository
      */
     public function getRequestRepository(): RequestRepository
     {

@@ -17,26 +17,17 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Exceptions\Ar
 
 /**
  * Job with event data for processing through queues
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Jobs
  */
-class EventToProcess implements ShouldQueue
+readonly class EventToProcess implements ShouldQueue
 {
     use InteractsWithQueue, Queueable;
 
-    /**
-     * @var EventData
-     */
-    public EventData $eventData;
-
-    /**
-     * @var ProcessOptions
-     */
-    public ProcessOptions $processOptions;
-
-    public function __construct(EventData $eventData, ProcessOptions $processOptions)
+    public function __construct(
+        public EventData      $eventData,
+        public ProcessOptions $processOptions
+    )
     {
-        $this->eventData = $eventData;
-        $this->processOptions = $processOptions;
+
     }
 
     public function handle(): void
