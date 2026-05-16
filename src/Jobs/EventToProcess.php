@@ -1,5 +1,11 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Jobs;
+<?php
 
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Jobs;
+
+use Log;
+use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -11,26 +17,17 @@ use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Exceptions\Ar
 
 /**
  * Job with event data for processing through queues
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Jobs
  */
-class EventToProcess implements ShouldQueue
+readonly class EventToProcess implements ShouldQueue
 {
     use InteractsWithQueue, Queueable;
 
-    /**
-     * @var EventData
-     */
-    public EventData $eventData;
-
-    /**
-     * @var ProcessOptions
-     */
-    public ProcessOptions $processOptions;
-
-    public function __construct(EventData $eventData, ProcessOptions $processOptions)
+    public function __construct(
+        public EventData      $eventData,
+        public ProcessOptions $processOptions
+    )
     {
-        $this->eventData = $eventData;
-        $this->processOptions = $processOptions;
+
     }
 
     public function handle(): void
@@ -40,19 +37,19 @@ class EventToProcess implements ShouldQueue
         try {
             $result = event(new ETPEvent($this->eventData, $this->processOptions));
         } catch (ArrayException $ex) {
-            \Log::error($ex);
+            Log::error($ex);
             $succeed = false;
             $response = $ex->getMessages();
             $result = [$this->eventData];
-        } catch (\Exception $exception) {
-            \Log::error($exception);
+        } catch (Exception $exception) {
+            Log::error($exception);
             $succeed = false;
             $response = $exception->getMessage();
             $result = [$this->eventData];
         }
 
         dispatch(
-            (new EventToSupervisor(Arr::last(Arr::where($result, function ($item) {
+            (new EventToSupervisor(Arr::last(Arr::where($result, static function ($item): bool {
                 return $item !== null;
             })), $this->processOptions->getId(), $succeed, $response))
                 ->onConnection(config('integration-hub.supervisor-connection', 'default'))

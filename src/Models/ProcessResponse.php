@@ -1,29 +1,21 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Models;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Models;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\EventData;
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\ProcessResponse as IProcessResponse;
 
 class ProcessResponse implements IProcessResponse
 {
-    /**
-     * @var EventData
-     */
     private EventData $eventData;
 
-    /**
-     * @var string
-     */
     private string $processId;
 
-    /**
-     * @var bool
-     */
     private bool $isSucceeded;
 
-    /**
-     * @var mixed
-     */
-    private $processResponse;
+    private mixed $processResponse;
 
     public function __construct(EventData $eventData, string $processId, bool $succeed = true, $processResponse = null)
     {
@@ -34,32 +26,6 @@ class ProcessResponse implements IProcessResponse
     }
 
     /**
-     * @param EventData $eventData
-     *
-     * @return $this
-     */
-    public function setEventData(EventData $eventData): self
-    {
-        $this->eventData = $eventData;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $processId
-     *
-     * @return $this
-     */
-    public function setProcessId($processId): self
-    {
-        $this->processId = $processId;
-
-        return $this;
-    }
-
-    /**
-     * @param bool $isSucceeded
-     *
      * @return $this
      */
     public function setIsSucceeded(bool $isSucceeded): self
@@ -70,41 +36,37 @@ class ProcessResponse implements IProcessResponse
     }
 
     /**
-     * @param mixed $processResponse
-     *
-     * @return $this
-     */
-    public function setProcessResponse($processResponse): self
-    {
-        $this->processResponse = $processResponse;
-
-        return $this;
-    }
-
-    /**
      * Get event data object
-     *
-     * @return EventData
      */
     public function getEventData(): EventData
     {
         return $this->eventData;
     }
 
+    public function setEventData(EventData $eventData): self
+    {
+        $this->eventData = $eventData;
+
+        return $this;
+    }
+
     /**
      * Get process id
-     *
-     * @return string
      */
     public function getProcessId(): string
     {
         return $this->processId;
     }
 
+    public function setProcessId($processId): self
+    {
+        $this->processId = $processId;
+
+        return $this;
+    }
+
     /**
      * Process succeeded
-     *
-     * @return bool
      */
     public function isSucceed(): bool
     {
@@ -113,11 +75,16 @@ class ProcessResponse implements IProcessResponse
 
     /**
      * Get process response
-     *
-     * @return mixed
      */
     public function getProcessResponse()
     {
         return $this->processResponse;
+    }
+
+    public function setProcessResponse($processResponse): self
+    {
+        $this->processResponse = $processResponse;
+
+        return $this;
     }
 }

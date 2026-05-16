@@ -1,10 +1,13 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Exceptions;
+<?php
 
-class ProcessException extends \Exception
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Exceptions;
+
+use Exception;
+
+class ProcessException extends Exception
 {
-    /**
-     * @var array
-     */
     private array $messages;
 
     public function __construct(string $message = '', int $code = 0, array $messages = [])
@@ -19,8 +22,6 @@ class ProcessException extends \Exception
 
     /**
      * Get exception messages
-     *
-     * @return array
      */
     public function getMessages(): array
     {

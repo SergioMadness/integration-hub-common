@@ -1,31 +1,23 @@
-<?php namespace professionalweb\IntegrationHub\IntegrationHubCommon\Traits;
+<?php
+
+declare(strict_types=1);
+
+namespace professionalweb\IntegrationHub\IntegrationHubCommon\Traits;
 
 use professionalweb\IntegrationHub\IntegrationHubCommon\Interfaces\Repositories\ProcessOptionsRepository;
 
 /**
  * Trait for classes that use process options repository
- * @package professionalweb\IntegrationHub\IntegrationHubCommon\Traits
  */
 trait UseProcessOptionsRepository
 {
-    /**
-     * @var ProcessOptionsRepository
-     */
     private ProcessOptionsRepository $processOptionsRepository;
 
-    /**
-     * @return ProcessOptionsRepository
-     */
     public function getProcessOptionsRepository(): ProcessOptionsRepository
     {
         return $this->processOptionsRepository;
     }
 
-    /**
-     * @param ProcessOptionsRepository $processOptionsRepository
-     *
-     * @return $this
-     */
     public function setProcessOptionsRepository(ProcessOptionsRepository $processOptionsRepository): self
     {
         $this->processOptionsRepository = $processOptionsRepository;
